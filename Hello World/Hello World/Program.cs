@@ -137,6 +137,43 @@ internal class Program
         // In fact, string has lots of really useful methods including Split, Join, Equals, and IsNullOrEmpty/IsNullOrWhiteSpace.
 
         // Variables
+        // They can be declared either explicitly or implicitly
+
+        int int1 = 10; // Exclicit declaration
+        var int2 = 10; // Implicit declaration
+
+        // One of the main benefits of using implicit typing is that it can shorten your code and make it more readable.
+
+        (string, string, int) ex1 = ("Charles", "Dickens", 1812); // Explicit
+        var im1 = ("Charles", "Dickens", 1812); // Implicit 
+
+        // There are instances where var cannot be used. 
+        // One is when declaring a variable without assigning it a value, 
+        // and another is when the compiler cannot infer from context what the data type is meant to be.
+    
+        int novar1; // ok
+        var cannotInferType; // not ok
+
+        // Every variable declared in C# is mutable, which means it can be changed.  
+        // To make a variable immutable, prepend it with the const keyword.
+
+        var i1 = 10;
+        i1 = 20;
+
+        const int i2 = 10;
+        i2 = 20; // error
+
+        // Naming Conventions
+        // C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
+
+        // Object	        Casing
+        // Classes	        PascalCase
+        // Public Members	PascalCase
+        // Private Members	_camelCase
+        // Methods	        PascalCase
+        // Variables	    camelCase
+        // Enums	        PascalCase
+
 
     }
 }
