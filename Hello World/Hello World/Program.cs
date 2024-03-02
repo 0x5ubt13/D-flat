@@ -174,6 +174,33 @@ internal class Program
         // Variables	    camelCase
         // Enums	        PascalCase
 
+        // Casting -> convert one data type to another
+        // Can be explicit or implicit
+
+        // Implicit cast
+        var i = 20;
+        double d = i;
+
+        // However, the inverse process to cast a double to an integer cannot be done implicitly
+        // Must be explicit
+        // invalid
+        // double d1 = 3.14D;
+        // int i1 = d1;
+
+        // Valid (explicit)
+        double d2 = 3.14D;
+        int i2 = (int)d2; // Data precision is now lost
+
+        // Other data types can be cast to each other when it makes sense.
+        // For example, because a char is just a Unicode value, it can be cast to an int
+        var c = 'A';
+        int i = c;
+        Console.WriteLine($"{c} == {i}");
+
+        c = (char)i;
+        Console.WriteLine($"{i} == {c}");
+
+        // Don't try to cast nonsensecally, i.e., string to float
 
     }
 }
