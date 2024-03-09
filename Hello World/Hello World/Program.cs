@@ -7,11 +7,30 @@ using System.Reflection;
 using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
 
+// Naming Conventions
+// C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
+
+// Object	        Casing
+// Classes	        PascalCase
+// Public Members	PascalCase
+// Private Members	_camelCase
+// Methods	        PascalCase
+// Variables	    camelCase
+// Enums	        PascalCase
+
 internal class Program
 {
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+
+        _dataTypesAndVariables()
+        _collections();
+    }
+
+    private static void _dataTypesAndVariables()
+    {
+
 
         // Data types -> Values and References
         // Values
@@ -163,17 +182,6 @@ internal class Program
         const int i2 = 10;
         i2 = 20; // error
 
-        // Naming Conventions
-        // C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
-
-        // Object	        Casing
-        // Classes	        PascalCase
-        // Public Members	PascalCase
-        // Private Members	_camelCase
-        // Methods	        PascalCase
-        // Variables	    camelCase
-        // Enums	        PascalCase
-
         // Casting -> convert one data type to another
         // Can be explicit or implicit
 
@@ -201,6 +209,57 @@ internal class Program
         Console.WriteLine($"{i} == {c}");
 
         // Don't try to cast nonsensecally, i.e., string to float
+    }
 
+    private static void _collections()
+    {
+        using System.Collections.Generic;
+
+        // Lists, Dictionaries, Hashtables and Queues
+
+        // Lists
+        var list1 = new List<int>();
+        var list2 = new List<int> { 1, 2, 3, 4, 5 };
+
+        // Append to the list with the Add method, 
+        // delete with Remove or RemoveAt
+        var integers = new List<int>();
+
+        integers.Add(1);
+        integers.Add(2);
+        integers.Add(3);
+        integers.Add(4);
+        integers.Add(5);
+
+        // Remove a known value
+        integers.Remove(1);
+
+        // Remove from a given index
+        integers.RemoveAt(2);
+
+        Console.WriteLine($"The value at index 2 is {integers[2]}.");
+
+        // Contains returns bool if value is there
+        if (integers.Contains(5))
+            Console.WriteLine("5 is present");
+
+        // And Find can be used to search for a value,
+        // taking in a "predicate" which is a lambda:  
+        var item = integers.Find(v => v == 2); 
+
+        Console.WriteLine(item);
+        // Note that if the value does not exist, 
+        // the method returns the default value for the list's data type, T. 
+
+        // Dictionary
+        var dict = new Dictionary<int, string>();
+
+        dict.Add(0, "Charles Dickens");
+        dict.Add(1, "George Orwell");
+        dict.Add(2, "Carlos Zafon");
+
+        // kvp = key value pair
+        foreach(var kvp in dict)
+            Console.WriteLine($"Key: {kvp.Key} contains: {kvp.Value}.")
     }
 }
