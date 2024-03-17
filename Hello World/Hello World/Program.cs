@@ -26,6 +26,7 @@ internal class Program
 
         _dataTypesAndVariables()
         _collections();
+        _operators();
     }
 
     private static void _dataTypesAndVariables()
@@ -261,5 +262,73 @@ internal class Program
         // kvp = key value pair
         foreach(var kvp in dict)
             Console.WriteLine($"Key: {kvp.Key} contains: {kvp.Value}.")
+
+        if (dict.ContainsKey(2))
+        {
+            dict[2] = "J.R.R Tolkien";
+        }
+
+        // Hashtable
+        // The Hashtable is like a stripped-down dictionary 
+        // that is designed for pure performance.  
+        // It does not maintain any order in the collection and 
+        // allows values to be looked up very quickly.  
+        // It's a good candidate when computing against large 
+        // data sets but for general use, the dictionary is 
+        // friendlier.
+        var table = new Hashtable
+        {
+            { 0, "Charles Dickens" },
+            { 1, "George Orwell" },
+            { 2, "Thomas Mann" },
+            { 3, "J.R.R. Tolkien" }
+        };
+
+        foreach(DictionaryEntry entry in table)
+        {
+            Console.WriteLine($"{entry.Key} : {entry.Value}");
+        }
+
+        // Queues and Stacks
+        // There are two main types of queue: the Queue and the Stack.  
+        // The queue is a first-in-first-out (FIFO) collection and 
+        // the stack is last-in-first-out (LIFO).  
+        // These are useful when the order of data is of the strictest 
+        // importance and can be used in places such as message queues.
+
+        // To push an object into a queue, use the Enqueue method.  
+        // To remove and return the next object, use Dequeue.
+
+        var queue = new Queue<int>();
+
+        // add items to the queue (enqueue)
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+
+        // dequeue items from the queue
+        while (queue.TryDequeue(out var value))
+            Console.WriteLine(value); // will print 1, 2, 3
+
+        // Stack
+        // They work the same way using the push and pop methods
+
+        var stack = new Stack<int>();
+
+        // Add items to the stack (push)
+        stack.Push(1);
+        stack.Push(2);
+        stack.Push(3);
+        
+        // Pop all the items from the stack
+        while (stack.TryPop(out var value))
+            Console.WriteLine(value); // Will print 3, 2, 1
+    }
+
+    private static void _operators()
+    {
+        // Mathematical Operators
+        // Logical Operators
+        // Bitwise Operators
     }
 }
