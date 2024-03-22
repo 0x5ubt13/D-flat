@@ -24,9 +24,10 @@ internal class Program
     {
         Console.WriteLine("Hello, World!");
 
-        _dataTypesAndVariables()
+        _dataTypesAndVariables();
         _collections();
         _operators();
+        _controlFlow();
     }
 
     private static void _dataTypesAndVariables()
@@ -330,5 +331,121 @@ internal class Program
         // Mathematical Operators
         // Logical Operators
         // Bitwise Operators
+
+        // Mathematical Operators
+        Console.WriteLine(23 + 53); // Add
+        Console.WriteLine(64 - 13); // Subtract
+        Console.WriteLine(23 * 90); // Multiply
+        Console.WriteLine(20 / 10); // Divide
+        Console.WriteLine(74 % 21); // Modulus
+
+        // Logical Operators
+        var rand = new Random(); // Generate some random numbers
+        var i1 = rand.Next(0, 100);
+        var i2 = rand.Next(0, 100);
+
+        if (i1 == i2) Console.WriteLine("Values are equal");
+        if (i1 != i2) Console.WriteLine("Values are not equal");
+        if (i1 > i2) Console.WriteLine("i1 is greater than i2");
+        if (i1 < i2) Console.WriteLine("i1 is less than i2");
+        if (i1 >= i2) Console.WriteLine("i1 is grater than or equal to i2");
+        if (i1 <= i2) Console.WriteLine("i1 is less than or equal to i2");
+
+        // Bitwise Operators
+        Console.WriteLine(i1 & i2);  // AND
+        Console.WriteLine(i1 | i2);  // OR
+        Console.WriteLine(i1 ^ i2);  // XOR
+        Console.WriteLine(i1 << i2); // Left Shift
+        Console.WriteLine(i1 >> i2); // Right Shift
+    }
+
+    private static void _controlFlow() 
+    {
+        _ifelse();
+        _switch();
+        _enums();
+
+        static void _ifelse()
+        {
+            // if (condition)
+            // {
+            //     do something
+            // }
+            // else if (condition two)
+            // {
+            //     do something else
+            //     If first one is true, the flow will break out and this will not be evaluated
+            // }
+            // else
+            // {
+            //     catch everything else
+            // } 
+            
+
+            var condition1 = true;
+            var condition2 = false;
+            var condition3 = false;
+            
+            // Conditions are read AND first, so parenthesis are needed
+            if (condition1 || condition2 && condition3)
+                Console.WriteLine("This is true because it does && first");
+            
+            if ((condition1 || condition2) && condition3)
+                Console.WriteLine("This is false");
+        }
+
+        static void _switch()
+        {
+            var animal = "Dog";
+
+            // if (animal == "Dog")
+            // {
+            //     Console.WriteLine("Woof");
+            // }
+            // else if (animal == "Cat")
+            // {
+            //     Console.WriteLine("Meow");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Unknown");
+            // }  All this can be condensed down to:
+
+            var sound = animal switch
+            {
+                "Dog" => "Woof",
+                "Cat" => "Meow",
+                _ => "Unknown" // catch-all
+            };
+
+            Console.WriteLine(sound);
+        }
+
+        static void _enums()
+        {
+            // An enum (or enumeration) is a set of pre-defined constants.  
+            // For example, we could have a "status" enum to indicate 
+            // whether a person is dead or alive.
+
+            var (firstName, lastName, status) = ("Carlos", "Zafon", Status.Dead)
+
+            switch (status)
+            {
+                case Status.Dead:
+                    Console.WriteLine($"{firstName} {lastName} is dead.");
+                    break;
+                case Status.Alive:
+                    Console.WriteLine($"{firstName} {lastName} is alive.")
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }   
+
+            internal enum Status
+            {
+                Dead,
+                Alive
+            }
+        }
     }
 }
