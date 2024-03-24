@@ -27,7 +27,7 @@ internal class Program
         _dataTypesAndVariables();
         _collections();
         _operators();
-        _controlFlow();
+        _controlFlow(args);
     }
 
     private static void _dataTypesAndVariables()
@@ -359,11 +359,14 @@ internal class Program
         Console.WriteLine(i1 >> i2); // Right Shift
     }
 
-    private static void _controlFlow() 
+    private static void _controlFlow(string[] args) 
     {
         _ifelse();
         _switch();
         _enums();
+        _loops();
+        _args(args);
+        _input();
 
         static void _ifelse()
         {
@@ -435,7 +438,7 @@ internal class Program
                     Console.WriteLine($"{firstName} {lastName} is dead.");
                     break;
                 case Status.Alive:
-                    Console.WriteLine($"{firstName} {lastName} is alive.")
+                    Console.WriteLine($"{firstName} {lastName} is alive.");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -445,6 +448,77 @@ internal class Program
             {
                 Dead,
                 Alive
+            }
+        
+
+        static void _loops()
+        {
+            // For loops and while loops are the main loops in C#
+            for (var i3 = 0; i3 < 10; i3++)
+                Console.WriteLine($"i is {i3}");
+
+            var i4 = 0;
+            while (true)
+            {
+                i4++;
+
+                if (i4 == 5)
+                    continue;
+
+                if (i4 > 10)
+                    break;
+
+                Console.WriteLine(i4);
+            }
+
+            // ForEach loop also exist, providing an easier way
+            // to loop over a collection without having to have a counter
+            var list = new List<int> { 1, 2, 3, 4, 5 };
+            foreach(var i5 in list)
+            {
+                Console.WriteLine(i5);
+            }
+        }
+
+        static void _args(string[] args)
+        {
+            // It's normal to include a length check
+            if (args.Length < 2)
+            {
+                Console.WriteLine("Not enough arguments");
+                ShowUsage();
+                return;
+            }
+            // args variable exists and can be used as normal
+            for (var i = 0; i < args.Length; i++)
+                Console.WriteLine($"Argument {i} is {args[i]}");
+
+            void ShowUsage()
+            {
+                Console.WriteLine("Usage: app.exe <arg1> <arg2>");
+            }
+        }
+
+        static void _input()
+        {
+            while (true)
+            {
+                // Print a pseudo prompt
+                Console.Write("> ");
+
+                // Read from stdin
+                var input = Console.ReadLine();
+
+                // Loop again if the string was empty
+                if (string.IsNullOrWhiteSpace(input))
+                    continue;
+
+                // Break if "exit". Use StringComparison enum to make case-insensitive
+                if (input.Equals("exit".Trim(), StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                // Print to stdout
+                Console.WriteLine($"You said: {input}");
             }
         }
     }
