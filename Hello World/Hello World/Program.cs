@@ -6,6 +6,7 @@ using System;
 using System.Reflection;
 using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
+using Microsoft.VisualBasic;
 
 // Naming Conventions
 // C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
@@ -28,12 +29,11 @@ internal class Program
         _collections();
         _operators();
         _controlFlow(args);
+        _classes();
     }
 
     private static void _dataTypesAndVariables()
     {
-
-
         // Data types -> Values and References
         // Values
         // Values are vars that take an int, byte, bool or char, por example.
@@ -359,7 +359,9 @@ internal class Program
         Console.WriteLine(i1 >> i2); // Right Shift
     }
 
-    private static void _controlFlow(string[] args) 
+    
+
+    private static void controlFlow(string[] args) 
     {
         _ifelse();
         _switch();
@@ -424,13 +426,19 @@ internal class Program
             Console.WriteLine(sound);
         }
 
+        internal enum Status
+        {
+            Dead,
+            Alive
+        }
+
         static void _enums()
         {
             // An enum (or enumeration) is a set of pre-defined constants.  
             // For example, we could have a "status" enum to indicate 
             // whether a person is dead or alive.
 
-            var (firstName, lastName, status) = ("Carlos", "Zafon", Status.Dead)
+            var (firstName, lastName, status) = ("Carlos", "Zafon", Status.Dead);
 
             switch (status)
             {
@@ -443,13 +451,7 @@ internal class Program
                 default:
                     throw new ArgumentOutOfRangeException();
             }   
-
-            internal enum Status
-            {
-                Dead,
-                Alive
-            }
-        
+        }
 
         static void _loops()
         {
@@ -521,5 +523,121 @@ internal class Program
                 Console.WriteLine($"You said: {input}");
             }
         }
+}
+
+// Specifics about classes:
+internal class Person
+{
+    // Constructor
+    public Person(string firstName, string lastName, DateOnly dateOfBirth)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        DateOfBirth = dateOfBirth;
+    }
+    // Each of these class variables will be "Properties" of the class
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    // Init is used below instead of set to make it a const var
+    // Then it can be changed to private set to make it private, to ensure the data can
+    // only be set from inside the class
+    public DateOnly DateOfBirth { get; private set; } 
+
+    public bool SetDateOfBirth(DateOnly dob)
+    {
+        if (dob > DateOnly.FromDateTime(DateTime.UtcNow))
+            return false;
+
+        DateOfBirth = dob;
+        return true;
+    }
+
+    // We can also define "computed" properties that can be made up of 
+    // data from existing properties.  For example, we have FirstName 
+    // and LastName, but what if we wanted a FullName as well?  No problem.
+    public string FullName => $"{FirstName} {LastName}";
+    // The lamba acts as a shorthand for:
+    // public string FullName 
+    // {
+    //     get
+    //     {
+    //         return $"{FirstName} {LastName}";
+    //     }
+    // }
+
+    // An Age property is another good candidate for a computed property, 
+    // as it could be calculated from the current date and the date of birth.
+    private static void Main(string[] args)
+    {
+        var person = new Person("Carlos", "Zafon", new DateOnly(1964, 09, 25));
+
+        var success = Person.SetDateOfBirth(new DateOnly(1812, 2, 7));
+
+        // Ternary conditional expression:
+        Console.WriteLine(success ? "Successfully set DOB" : "Setting DOB failed");
+        Console.WriteLine(person.DateOfBirth);
+    }
+}
+
+// Polyphormism (inheritance)
+// Add abstract keyword so that it can't be instantiated on its own
+internal abstract class Animal
+{
+    public required string Name { get; set; }
+
+    public void SayYourName()
+    {
+        Console.WriteLine($"My name is {Name}");
+    }
+
+    // Overrides
+    // We can also declare abstract methods on a class, which will force those
+    // inheriting it to provide their own implementation
+    // Linters will tell us if inheriting classess are not using this mandatory method:
+    // 'Dog' does not implement inherited abstract member 'Animal.MakeNoise()'CS0534
+    public abstract void MakeNoise();   
+}
+
+internal class Dog : Animal 
+{
+    public override void MakeNoise()
+    {
+        Console.WriteLine("Woof");
+    }
+}
+
+internal class Cat : Animal
+{
+    public override void MakeNoise()
+    {
+        Console.WriteLine("Meow");
+    }
+}   
+
+// var dog = new Dog { Name = "Lassie" };
+// dog.SayYourName();
+// var dog = new Cat { Name = "Salem" };
+// cat.SayYourName();
+
+// Interfaces
+// Another form of abstraction - like an abstract class, but can only contain methods and properties.
+// You cannot define methods that also have implementations
+// Naming convention for an interface is to have it begin with an "I"
+internal interface IAnimal
+{
+    string Name { get; }
+    void MakeNoise();
+}
+
+// A class inherits from an interface in the same way as an abstract class
+public class Dog2(string name) : IAnimal
+{
+    public string Name { get; } = name;
+
+    public void MakeNoise()
+    {
+        Console.WriteLine($"Woof, my name is {Name}");
     }
 }
