@@ -7,6 +7,9 @@ using System.Reflection;
 using System.Runtime.Intrinsics.X86;
 using System.Xml.Linq;
 using Microsoft.VisualBasic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text;
 
 // Naming Conventions
 // C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
@@ -640,4 +643,50 @@ public class Dog2(string name) : IAnimal
     {
         Console.WriteLine($"Woof, my name is {Name}");
     }
+}
+
+public class Serialization()
+{
+    // We've seen instances where letters such as T are used to represent a data type, such as List<T>.  This allows you to create a list containing any data type, even custom classes that you create.  For example, we could have a List<Person>.
+    public static void main()
+    {
+        var people = new List<SerializablePerson>();
+
+        // This is far more flexible than having specific concrete implementations only for C#'s default data types.  You can also leverage generics in your own classes and methods.  Let's use (de)serialization as a working example.
+        // Now imagine that we have multiple classes that we want to serialize and deserialize - having separate methods for every class is clearly not very efficient and would be a maintenance nightmare.  What we can do instead is refactor these methods to accept generics.  
+        // We can do this by replacing the concrete type of Person, with T.
+        // byte[] SerializePerson(SerializablePerson person)
+        // Also implementing constraint where T : class, which means T must be a reference type //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters
+        byte[] SerializePerson<T>(T obj) where T : class
+        {
+            using var ms = new MemoryStream();
+            JsonSerializer.Serialize(ms, obj);
+
+            return ms.ToArray();
+        }
+
+        // SerializablePerson DeserializePerson(byte[] json)
+        T DeserializePerson<T>(byte[] json)
+        {
+            using var ms = new MemoryStream(json);
+            // return JsonSerializer.Deserialize<SerializablePerson>(ms);
+            return JsonSerializer.Deserialize<T>(ms);
+        }
+
+        var person = new SerializablePerson
+        {
+            FirstName = "Subtle",
+            LastName = "Labs"
+        };
+
+        var json = SerializePerson(person);
+        Console.WriteLine(Encoding.Default.GetString(json));
+    } 
+}
+
+[Serializable]
+internal class SerializablePerson
+{
+    [JsonPropertyName("first_name")] public string FirstName { get; set; }
+    [JsonPropertyName("last_name")] public string LastName { get; set; }
 }
