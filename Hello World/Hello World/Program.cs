@@ -218,8 +218,6 @@ internal class Program
 
     private static void _collections()
     {
-        using System.Collections.Generic;
-
         // Lists, Dictionaries, Hashtables and Queues
 
         // Lists
@@ -572,6 +570,7 @@ internal class Person
 
     // An Age property is another good candidate for a computed property, 
     // as it could be calculated from the current date and the date of birth.
+    public int Age => DateTime.Today.Year - DateOfBirth.Year;
     private static void Main(string[] args)
     {
         var person = new Person("Carlos", "Zafon", new DateOnly(1964, 09, 25));
@@ -581,7 +580,25 @@ internal class Person
         // Ternary conditional expression:
         Console.WriteLine(success ? "Successfully set DOB" : "Setting DOB failed");
         Console.WriteLine(person.DateOfBirth);
-    }
+
+        // LINQ: query inside the C# program:
+        var people = new List<Person>
+        {
+        new("Jose", "Gomez", new DateOnly(1957, 2, 3)),
+        new("Caroline", "Farias", new DateOnly(19872, 11, 22)),
+        new("Rosemarie", "Pickens", new DateOnly(1993, 5, 17)),
+        new("Hester", "Funk", new DateOnly(1986, 11, 1)),
+        new("Dianne", "Soria", new DateOnly(1979, 7, 26))
+        };
+
+        // LINQ: find everyone who was born after 1975
+        var after1975 = people.Where(p => p.DateOfBirth.Year > 1975).ToArray();
+        Console.WriteLine($"Found {after1975.Length} people. They are: ");
+
+        // Print them
+        foreach(var person in after1975)
+            Console.WriteLine($"{person.FullName}, born on {person.DateOfBirth}, age {person.Age}.");
+             
 }
 
 // Polyphormism (inheritance)
