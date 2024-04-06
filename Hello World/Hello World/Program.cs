@@ -10,6 +10,7 @@ using Microsoft.VisualBasic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text;
+using System.Security.Cryptography;
 
 // Naming Conventions
 // C# uses different text casing depending on where it's being declared.  Here is a summary of the conventions:
@@ -596,12 +597,50 @@ internal class Person
         Console.WriteLine($"Found {after1975.Length} people. They are: ");
 
         // Print them
-        foreach(var person in after1975)
-            Console.WriteLine($"{person.FullName}, born on {person.DateOfBirth}, age {person.Age}.");
-             
-}
+        foreach(var personAfter1975 in after1975)
+            Console.WriteLine($"{personAfter1975.FullName}, born on {personAfter1975.DateOfBirth}, age {personAfter1975.Age}.");
+        
+        // Where filters the collection based on the provided predicate and returns an IEnumerable<T>. 
+        // LINQ: find everyone 50 or younger, born on a Monday
+        var peopleUnder50 = people.Where(p => p.DateOfBirth.DayOfWeek == DayOfWeek.Monday && p.Age <= 50).ToArray();
 
-// Polyphormism (inheritance)
+        // Predicates that have multiple conditions can look a bit unwieldly when written in this way.  
+        // You may also extract the code in to a separate method, which is also useful if you need to use it multiple times.
+        var peopleUnder50Method = people.Where(FiftyOrYoungerBornOnMonday).ToArray();
+
+        bool FiftyOrYoungerBornOnMonday(Person person)
+        {
+            return person.Age <= 50 &&
+                   person.DateOfBirth.DayOfWeek == DayOfWeek.Monday;
+        }
+
+        // LINQ: Any 
+        // Any returns a bool, indicating whether a collection has any elements matching the predicate.  
+        // If no predicate is provided, it indicates whether or not the collection is empty.
+        if (people.Any())
+            Console.WriteLine("People has elements");
+
+        if (!people.Any(p => p.Age < 20))
+            Console.WriteLine("Nobody is under the age of 20");
+
+        // LINQ: First (or default)
+        // First returns the first element of a collection that matches the predicate.  
+        // If no predicate is provided, it will just return the first element of the collection.
+        var firstPersonWithF = people.First(p => p.LastName.StartsWith("F"));
+        Console.WriteLine(firstPersonWithF is null ? "No matching person found" : firstPersonWithF.FullName);
+        
+        // LINQ: OrderBy and OrderByDescending
+        // OrderBy and OrderByDescending allow you to order a collection based on a key.  
+        // It uses the equality comparer for the specific data type.
+
+        // Youngest to oldest
+        var ascending = people.OrderBy(p => p.Age);
+
+        // Oldest to youngest
+        var descending = people.OrderByDescending(p => p.Age);
+}       
+
+// Class Polyphormism (inheritance)
 // Add abstract keyword so that it can't be instantiated on its own
 internal abstract class Animal
 {
