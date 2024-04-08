@@ -30,7 +30,23 @@ public class PlatformInvoke
         var hProcess2 = LoadLibraryW("amsi.dll");
 
         // Enums
-        
-    
+        // Enums can be used in conjunction with APIs that have pre-determined values for their parameters.  
+        // For instance, OpenProcess requires a set of ProcessAccessRights which are defined [here](https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights).  
+        // Instead of remembering values, we can define then in an enum - as long as the underlying datatype matches (in this case, uint), it will work.
+        // The '[Flags]' attribute on the enum tells C# that the values can be treated as a bit field (i.e. you can perform bitwise operations on them).  In the particular case of this API, it allows you to build up a desired access value of the exact privileges that you want the final handle to have.
+        static extern nint OpenProcess(ProcessAccessRights dwDesiredAccess, bool bInheritHandle, uint dwProcessId);
+
+        var hProcess3 = OpenProcess(
+            ProcessAccessRights.PROCESS_VM_READ | ProcessAccessRights.PROCESS_VM_WRITE, 
+            false, 26768);
+
+        [Flags]
+        internal enum ProcessAccessRights : uint
+        {
+            // many missing for brevity
+            PROCESS_VM_READ = 0X0010,
+            PROCESS_VM_WRITE = 0X0020,
+            PROCESS_VM_OPERATION = 0X0008
+        }
     }
 }
