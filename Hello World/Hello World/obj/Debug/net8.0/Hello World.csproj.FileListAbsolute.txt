@@ -1,0 +1,5 @@
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Hello World\Hello World\obj\Debug\net8.0\Hello World.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Hello World\Hello World\obj\Debug\net8.0\Hello World.AssemblyInfoInputs.cache
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Hello World\Hello World\obj\Debug\net8.0\Hello World.AssemblyInfo.cs
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Hello World\Hello World\obj\Debug\net8.0\Hello World.csproj.CoreCompileInputs.cache
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Hello World\Hello World\obj\Debug\net8.0\Hello World.sourcelink.json

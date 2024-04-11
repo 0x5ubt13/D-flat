@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {}
+    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj": {}
   },
   "projects": {
-    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {
+    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
-        "projectName": "Hello World",
-        "projectPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
+        "projectUniqueName": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj",
+        "projectName": "Requests",
+        "projectPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\obj\\",
+        "outputPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config"
