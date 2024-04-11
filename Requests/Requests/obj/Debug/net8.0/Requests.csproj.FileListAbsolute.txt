@@ -1,0 +1,5 @@
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Requests\Requests\obj\Debug\net8.0\Requests.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Requests\Requests\obj\Debug\net8.0\Requests.AssemblyInfoInputs.cache
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Requests\Requests\obj\Debug\net8.0\Requests.AssemblyInfo.cs
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Requests\Requests\obj\Debug\net8.0\Requests.csproj.CoreCompileInputs.cache
+c:\Users\gabri\Virtual Machines\shared\Coding\D-flat\Requests\Requests\obj\Debug\net8.0\Requests.sourcelink.json

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {}
+    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {
+    "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
+        "projectUniqueName": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
         "projectName": "Hello World",
-        "projectPath": "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
+        "projectPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\Hello World.csproj",
         "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\obj\\",
+        "outputPath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Hello World\\Hello World\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config"
