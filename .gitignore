@@ -5,3 +5,6 @@
 /.vs
 /Hello World/.vs
 /Hello World/Hello World/bin/Debug/net8.0
+/Hello World/Hello World/.vs/Hello World
+/Hello World/Hello World/Hello World/bin/Debug
+/Hello World/Hello World/Hello World/obj
