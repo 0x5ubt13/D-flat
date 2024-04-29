@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bool.cs" />
+    <Compile Include="ConsoleIO.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="String_Chars.cs" />
     <Compile Include="Program.cs" />

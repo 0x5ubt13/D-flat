@@ -58,6 +58,7 @@ namespace Hello_World
             String_Chars.Run();
             Bool.Run();
             Operations.Run();
+            ConsoleIO.Run();
 
             Console.ReadLine();
         }
