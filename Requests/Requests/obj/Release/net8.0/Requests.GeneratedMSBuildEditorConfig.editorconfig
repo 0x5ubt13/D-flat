@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Requests
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\gabri\Source\Repos\0x5ubt13\D-flat\Requests\Requests\
+=======
+build_property.ProjectDir = C:\Users\gabriel.gteran\Source\Repos\0x5ubt13\D-flat\Requests\Requests\
+>>>>>>> 16058329a0fc0f0824548c19c3414f55c40ae648
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

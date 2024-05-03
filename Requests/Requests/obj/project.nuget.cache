@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "RQ0xNLikO1P2Jgce3i4tRLoFAKjm6HU0GqB39Uv6XobaOUOJH8V9FHcQzSWGd9ThxKyrwpbLrCf5kNcnOmzCEw==",
   "success": true,
   "projectFilePath": "c:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj",
+=======
+  "dgSpecHash": "snu2Vrw2936STLk7+NlNUyDTOrDRCMuaCGoBT9ThcEeUBAkKIN1YAHyTorQUCNTRv85iuvt4sWk7Vmc3BihYLQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gabri\\Virtual Machines\\shared\\Coding\\D-flat\\Requests\\Requests\\Requests.csproj",
+>>>>>>> 16058329a0fc0f0824548c19c3414f55c40ae648
   "expectedPackageFiles": [],
   "logs": []
 }
