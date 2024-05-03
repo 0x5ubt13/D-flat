@@ -55,11 +55,15 @@ namespace Hello_World
             Console.WriteLine(decimal.MaxValue);
             Console.WriteLine(decimal.MinValue);
 
-            String_Chars.Run();
-            Bool.Run();
-            Operations.Run();
-            ConsoleIO.Run();
-            ControlFlow.Run();
+            // Call classes
+            //String_Chars.Run();
+            //Bool.Run();
+            //Operations.Run();
+            //ConsoleIO.Run();
+            //ControlFlow.Run();
+            //ConditionalOperator.Run();
+            //NumericFormatting.Run();
+            MiniExerciseTimesTable.Run();
 
             Console.ReadLine();
         }
