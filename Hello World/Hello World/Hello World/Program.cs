@@ -63,7 +63,8 @@ namespace Hello_World
             //ControlFlow.Run();
             //ConditionalOperator.Run();
             //NumericFormatting.Run();
-            MiniExerciseTimesTable.Run();
+            //MiniExerciseTimesTable.Run();
+            FizzBuzz.Run();
 
             Console.ReadLine();
         }
