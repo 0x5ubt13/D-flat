@@ -64,7 +64,9 @@ namespace Hello_World
             //ConditionalOperator.Run();
             //NumericFormatting.Run();
             //MiniExerciseTimesTable.Run();
-            FizzBuzz.Run();
+            //FizzBuzz.Run();
+            //VerbatimStringLiteral.Run();
+            MiniExercisePasswordChecker.Run();
 
             Console.ReadLine();
         }
