@@ -66,7 +66,10 @@ namespace Hello_World
             //MiniExerciseTimesTable.Run();
             //FizzBuzz.Run();
             //VerbatimStringLiteral.Run();
-            MiniExercisePasswordChecker.Run();
+            //MiniExercisePasswordChecker.Run();
+            //Arrays.Run();
+            //Lists.Run();
+            Dictionaries.Run();
 
             Console.ReadLine();
         }

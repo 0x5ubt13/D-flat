@@ -47,7 +47,9 @@
     <Compile Include="Bool.cs" />
     <Compile Include="ConditionalOperator.cs" />
     <Compile Include="ConsoleIO.cs" />
+    <Compile Include="Dictionaries.cs" />
     <Compile Include="FizzBuzz.cs" />
+    <Compile Include="Lists.cs" />
     <Compile Include="MiniExerciseTimesTable.cs" />
     <Compile Include="NumericFormatting.cs" />
     <Compile Include="Operations.cs" />
